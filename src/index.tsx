@@ -2,23 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-class Square extends React.Component<{}, {value: string}>  {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-  }
-  
-  render() {
-    return (
-      <button
-      className="square"
-      onClick={() => this.setState({value: 'X'})}>
-        {this.state.value}
-      </button>
-    );
-  }
+interface SquareProps {
+  value: string,
+  onClick: () => void
+}
+
+function Square({value, onClick}: SquareProps) {
+  return (
+    <button className="square" onClick={onClick}>
+      {value}
+    </button>
+  );
 }
 
 class Board extends React.Component {

@@ -16,7 +16,7 @@ function Square({value, onClick}: SquareProps) {
 }
 
 interface BoardProps {
-  history: Array<{squares: string[]}>
+  squares: string[],
   onClick: (i: number) => void
 }
 
@@ -24,7 +24,7 @@ class Board extends React.Component<BoardProps, {squares: string[], xIsNext: boo
   renderSquare(i: number) {
     return (
     <Square
-    value={this.props.history[this.props.history.length - 1].squares[i]}
+    value={this.props.squares[i]}
     onClick={() => this.props.onClick(i)}
     />
     );
